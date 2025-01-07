@@ -48,71 +48,8 @@
 <p>1.</p>
 <p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/7bbb6b88b54b466ba3e168f405780158/raw/77953ffdabc5f2a72bbe203f4f54b5358c5224b1/w11.py">程式1</a></p>
 <p>2.</p>
-<p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/36bb5f4ca727104c08fd7db1de53848e/raw/4210240625ca1e02e933feb4eb0f1c9559a518a3/g2.py">程式二</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html  # 匯入 html 模組，用於操作 HTML 元素
-from browser import document as doc  # 匯入 document 模組，簡化操作文檔物件
- 
-# 建立 canvas 超文件物件
-canvas = html.CANVAS(width=400, height=400)  # 建立一個 400x400 像素的 canvas 畫布
-brython_div = doc["brython_div1"]  # 獲取 HTML 中 ID 為 brython_div1 的元素
-brython_div &lt;= canvas  # 將 canvas 元素加入到 brython_div1 中
- 
-# 每一格的 pixel 數
-gs = 20  # 定義網格的單位像素大小為 20px
- 
-# canvas context
-ctx = canvas.getContext("2d")  # 獲取 canvas 的 2D 繪圖上下文，用於執行繪圖操作
- 
-# 定義繪製矩形的函數
-def dRect(lux, luy, w, h, s=1, c="lightgrey"):  
-    # lux, luy: 矩形的左上角座標
-    # w, h: 矩形的寬度與高度
-    # s: 邊框寬度，c: 邊框顏色
-    ctx.lineWidth = s  # 設定邊框寬度
-    ctx.strokeStyle = c  # 設定邊框顏色
-    ctx.beginPath()  # 開始繪製新路徑
-    ctx.rect(lux, luy, w, h)  # 定義矩形
-    ctx.stroke()  # 繪製矩形
- 
-# 繪製網格
-def grid(width, height, grid_pix):  
-    # width, height: 網格的行列數
-    # grid_pix: 每一格的像素大小
-    for i in range(width):  # 遍歷每一行
-        for j in range(height):  # 遍歷每一列
-            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix, 1, "lightgrey")  
-            # 繪製每一格的矩形框
- 
-# 填滿指定格子
-def fill(x, y, color):  
-    # x, y: 填充的格子座標（以 1 為基準）
-    # color: 填充顏色
-    ctx.fillStyle = color  # 設定填充顏色
-    ctx.fillRect((x - 1) * gs, (y - 1) * gs, gs, gs)  # 填充整個格子
- 
-# 判斷是否在圓形範圍內
-def is_in_circle(cx, cy, x, y, r):  
-    # cx, cy: 圓心座標
-    # x, y: 檢查點座標
-    # r: 圓的半徑
-    return ((x - cx) ** 2 + (y - cy) ** 2) &lt;= r ** 2  # 若點到圓心的距離平方小於等於半徑平方，則在圓內
- 
-# 圓形繪製
-def draw_circle(grid_size, radius):  
-    # grid_size: 網格大小（行數與列數）
-    # radius: 圓的半徑（以格子數為單位）
-    center = (grid_size // 2) + 0.5  # 圓心位於中心，+0.5 是為了更精確對齊
-    for i in range(1, grid_size + 1):  # 遍歷網格的行
-        for j in range(1, grid_size + 1):  # 遍歷網格的列
-            # 檢查格子中心點是否在圓內
-            if is_in_circle(center, center, i, j, radius):  
-                fill(i, j, "black")  # 如果在圓內，填滿該格子為黑色
- 
-# 主程式
-grid(10, 10, gs)  # 繪製 10x10 的網格，每格 20px
-draw_circle(10, 5)  # 在網格中繪製半徑為 5 的圓形
-</pre>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/2uDzVMBJFd0" width="560"></iframe></p>
+<p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/9505af4afbac9f3ad6cf3346aa82bfd4/raw/520f39f5c2e0a8e909e7d217a51883bbee023def/w11.py">程式2</a></p>
+<p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/36bb5f4ca727104c08fd7db1de53848e/raw/4210240625ca1e02e933feb4eb0f1c9559a518a3/g2.py"></a><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/2uDzVMBJFd0" width="560"></iframe></p>
 <p>1127</p>
 <p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/58040f1f6eb11f97abf5963329a66458/raw/71efeaf51af36dc69afd9e6dc922d7d06ff3a401/g3.py">程式</a></p><h3>w13_hw</h3>
 <p></p>
@@ -255,23 +192,26 @@ ctx.moveTo(60, 60)
 ctx.lineTo(360, 360)
 ctx.stroke()
 </script>
-</p><h1>HW 2</h1>
+</p><h3>w15</h3>
+<p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/3089ac5b0d7a598861d9916c5bef750a/raw/54060152b41579cb2bfbefcff89e073cc6401d56/hw15.py">範例程式</a></p>
+<p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
-<hr/>
-<p>延續 HW 1 網頁資料整理與程式練習方法, 整理下列內容 (20%):</p>
-<p>PART 2: Introduction to lists and if/else statements</p>
-<p>PART 3: Introduction to the for loop</p>
-<p>完成上述流程整理後, 請將 HW2 自評分數輸入 cp2024 自評表單中.</p>
-<h2>HW 2 Exam</h2>
+<h3>w16_exam1</h3>
+<p></p>
+<p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/a858cf4505dd07a33121ce5ddd247e23/raw/ad838a30bcf570bd3cde906a5a7d9c1fe4b2b1f2/py.tw">程式一</a></p>
+<div id="gtx-trans" style="position: absolute; left: -36px; top: 56.7188px;">
+<div class="gtx-trans-icon"></div>
+</div><h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h1>HW 3</h1>
-<h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
-<p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
+<h3>w16_exam2</h3>
+<p><a href="https://mdecp2024.github.io/hw-41323215/content/Brython.html?src=https://gist.githubusercontent.com/41323215/9979ff243bd7210af5c3646174753fdf/raw/b21c6819fb4a5f95ec23e784fdde25eb50844084/py.tw">程式二</a></p>
 <p></p>
-<p></p>
-<h2>HW 3 Exam</h2>
+<div id="gtx-trans" style="position: absolute; left: -94px; top: 56.7188px;">
+<div class="gtx-trans-icon"></div>
+</div><h2>HW 3 Exam</h2>
 <h3>w7</h3>
 <p>：</p>
 <p>```python<br/>def print_pyramid(n):<br/> for i in range(n):<br/> # 打印空格<br/> print(' ' * (n - i - 1), end='')<br/> # 打印星號<br/> print('*' * (2 * i + 1))</p>
